@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ラインアレイスピーカーの解説と3D体験</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>ラインアレイスピーカーの解説と3D体験</h1>
+</header>
+
+<main>
+    <section>
+        <h2>ラインアレイスピーカーとは？</h2>
+        <p>
+            ラインアレイスピーカーは、複数のスピーカーユニットを縦に配置し、一体化した音響システムを形成するスピーカーです。これにより、遠距離まで均一な音圧で音を届けることが可能になり、大規模なコンサートやイベントで広く使用されています。
+        </p>
+        <h3>特徴</h3>
+        <ul>
+            <li>音の指向性が高く、遠方まで音が届く</li>
+            <li>垂直方向の音の広がりを抑え、反射音を軽減</li>
+            <li>設置の自由度が高く、様々な会場に適応可能</li>
+        </ul>
+        <div class="image">
+            <img src="line_array_speaker.jpg" alt="ラインアレイスピーカーの写真">
+        </div>
+    </section>
+
+    <section>
+        <h2>仕組みと原理</h2>
+        <p>
+            ラインアレイスピーカーは、音波の干渉効果を利用して特定の方向に音を集中させます。各スピーカーユニットから発せられる音が合わさり、遠方でも減衰しにくい音場を形成します。
+        </p>
+        <h3>音の指向性制御</h3>
+        <p>
+            ユニット間の位相や振幅を調整することで、音の指向性を細かく制御できます。これにより、聴衆エリア全体に均一な音量と音質を提供できます。
+        </p>
+    </section>
+
+    <section>
+        <h2>設置方法とポイント</h2>
+        <p>
+            ラインアレイスピーカーの設置では、以下のポイントが重要です。
+        </p>
+        <ol>
+            <li><strong>角度調整：</strong>各ユニットの角度を調整して、音の到達範囲を最適化します。</li>
+            <li><strong>高さの設定：</strong>スピーカー全体の高さを調整し、近距離と遠距離の音圧バランスを取ります。</li>
+            <li><strong>音響測定：</strong>実際の環境で音響特性を測定し、設定を微調整します。</li>
+        </ol>
+        <div class="image">
+            <img src="speaker_setup.jpg" alt="スピーカーの設置例">
+        </div>
+    </section>
+
+    <section>
+        <h2>3Dモデルで体験するラインアレイスピーカー</h2>
+        <p>
+            以下の3Dモデルを通じて、ラインアレイスピーカーの構造や配置をインタラクティブに体験できます。マウス操作でモデルを回転・ズームして、詳細を確認してください。また、スピーカーをクリックすると音が再生される機能も追加しています。
+        </p>
+        <div id="3d-container"></div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 ラインアレイスピーカーの解説と3D体験</p>
+</footer>
+
+<!-- Three.js ライブラリ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- OrbitControls ライブラリ -->
+<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+<!-- JavaScriptファイル -->
+<script src="script.js"></script>
+
+</body>
+</html>
