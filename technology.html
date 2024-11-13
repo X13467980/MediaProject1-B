@@ -20,53 +20,24 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section class="fade-in">
+            <h2>点音源と線音源の視覚化</h2>
+            <button id="point-source-btn">点音源の広がりを見る</button>
+            <button id="line-source-btn">線音源の広がりを見る</button>
+            <div id="visualization"></div>
+        </section>
+
+        <section class="fade-in">
             <h2>ラインアレイスピーカーとは</h2>
-            <p>ラインアレイスピーカーは、複数のスピーカーユニットを垂直方向に配列し、狙った方向に明瞭で均一な音を届けることができるスピーカーシステムです。この特性により、大規模な会場やコンサートなどで広く使用されています。</p>
+            <p>ラインアレイスピーカーは、複数のスピーカーユニットを垂直方向に配列し、狙った方向に明瞭で均一な音を届けることができるスピーカーシステムです。</p>
         </section>
 
-        <section>
+        <section class="fade-in">
             <h2>通常のスピーカーとラインアレイスピーカーの違い</h2>
-            <p>通常のスピーカーは「点音源」として分類され、音は球面状に広がります。一方、ラインアレイスピーカーは「線音源」として、音が円筒状に広がる特性を持っています。</p>
+            <p>通常のスピーカーは「点音源」、ラインアレイスピーカーは「線音源」として、それぞれ異なる音の広がり方を持っています。</p>
         </section>
 
-        <section>
-            <h3>点音源の特性</h3>
-            <ul>
-                <li>音は球面状に広がる。</li>
-                <li>距離が倍になると、音のエネルギーは1/4に減衰（6dB減衰）。</li>
-                <li>反射音が多く、音の明瞭性に影響を与えることがある。</li>
-            </ul>
-            <h4>点音源のデメリット</h4>
-            <ul>
-                <li>距離による音の減衰が大きい。</li>
-                <li>天井や壁からの反射が多く、音が明瞭に聞こえにくくなる。</li>
-                <li>ハウリングが発生しやすい。</li>
-            </ul>
-        </section>
-
-        <section>
-            <h3>線音源の特性</h3>
-            <ul>
-                <li>水平方向には広がるが、垂直方向には広がらない。</li>
-                <li>距離が倍になると、音のエネルギーは1/2に減衰（3dB減衰）。</li>
-                <li>反射音が少なく、明瞭な音声を届けることができる。</li>
-            </ul>
-            <h4>線音源のメリット</h4>
-            <ul>
-                <li>距離による音の減衰が小さい。</li>
-                <li>天井や壁からの反射が少なく、明瞭な音を届けることができる。</li>
-                <li>ハウリングが起こりにくい。</li>
-                <li>狙ったエリアに明瞭に音を届けることができる。</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>ラインアレイスピーカーの有効距離</h2>
-            <p>ラインアレイスピーカーの特徴として、垂直方向に音が広がらないことがありますが、その指向性を維持できる距離には限度があります。有効距離を超えると、音は点音源のスピーカーのように広がります。一般に、有効距離はスピーカーの長さと周波数に依存します。</p>
-        </section>
-
-        <section>
+        <section class="fade-in">
             <h2>参考文献</h2>
             <ul>
                 <li><a href="https://www.sony.jp/line-array-speaker/about/" target="_blank">ソニーのラインアレイスピーカー</a></li>
@@ -77,5 +48,63 @@
     <footer>
         <p>&copy; 2024 ラインアレイスピーカー研究プロジェクト</p>
     </footer>
+
+    <!-- JavaScriptの埋め込み -->
+    <script>
+        // 点音源と線音源の視覚化
+        const visualization = document.getElementById('visualization');
+        const pointSourceBtn = document.getElementById('point-source-btn');
+        const lineSourceBtn = document.getElementById('line-source-btn');
+
+        pointSourceBtn.addEventListener('click', () => {
+            visualizeSource('point');
+        });
+
+        lineSourceBtn.addEventListener('click', () => {
+            visualizeSource('line');
+        });
+
+        function visualizeSource(type) {
+            visualization.innerHTML = '';
+            const canvas = document.createElement('canvas');
+            canvas.width = 300;
+            canvas.height = 300;
+            const ctx = canvas.getContext('2d');
+            visualization.appendChild(canvas);
+
+            let radius = 0;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                if (type === 'point') {
+                    // 点音源：球面状に広がる
+                    ctx.arc(150, 150, radius, 0, 2 * Math.PI);
+                } else {
+                    // 線音源：円筒状に広がる
+                    ctx.ellipse(150, 150, radius, 50, 0, 0, 2 * Math.PI);
+                }
+                ctx.strokeStyle = 'blue';
+                ctx.stroke();
+                radius += 2;
+                if (radius < 150) {
+                    requestAnimationFrame(animate);
+                }
+            }
+            animate();
+        }
+
+        // スクロール時のフェードインエフェクト
+        const fadeIns = document.querySelectorAll('.fade-in');
+
+        window.addEventListener('scroll', () => {
+            fadeIns.forEach((element) => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
