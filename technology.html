@@ -25,24 +25,35 @@
     <div class="header-spacer"></div>
 
     <main>
-        <section class="fade-in">
-            <h2>点音源と線音源の視覚化</h2>
-            <button id="point-source-btn">点音源の広がりを見る</button>
-            <button id="line-source-btn">線音源の広がりを見る</button>
-            <div id="visualization"></div>
-        </section>
-
-        <section class="fade-in">
+        <section>
             <h2>ラインアレイスピーカーとは</h2>
             <p>ラインアレイスピーカーは、複数のスピーカーユニットを垂直方向に配列し、狙った方向に明瞭で均一な音を届けることができるスピーカーシステムです。</p>
         </section>
 
-        <section class="fade-in">
+        <section>
             <h2>通常のスピーカーとラインアレイスピーカーの違い</h2>
             <p>通常のスピーカーは「点音源」、ラインアレイスピーカーは「線音源」として、それぞれ異なる音の広がり方を持っています。</p>
         </section>
 
-        <section class="fade-in">
+        <section>
+            <h3>点音源の特性</h3>
+            <ul>
+                <li>音は球面状に広がる。</li>
+                <li>距離が倍になると、音のエネルギーは1/4に減衰（6dB減衰）。</li>
+                <li>反射音が多く、音の明瞭性に影響を与えることがある。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>線音源の特性</h3>
+            <ul>
+                <li>水平方向には広がるが、垂直方向には広がらない。</li>
+                <li>距離が倍になると、音のエネルギーは1/2に減衰（3dB減衰）。</li>
+                <li>反射音が少なく、明瞭な音声を届けることができる。</li>
+            </ul>
+        </section>
+
+        <section>
             <h2>参考文献</h2>
             <ul>
                 <li><a href="https://www.sony.jp/line-array-speaker/about/" target="_blank">ソニーのラインアレイスピーカー</a></li>
@@ -54,20 +65,5 @@
     <footer>
         <p>&copy; 2024 ラインアレイスピーカー研究プロジェクト</p>
     </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // スクロール時のフェードインエフェクト
-        const fadeIns = document.querySelectorAll('.fade-in');
-
-        window.addEventListener('scroll', () => {
-            fadeIns.forEach((element) => {
-                const rect = element.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    element.classList.add('visible');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
