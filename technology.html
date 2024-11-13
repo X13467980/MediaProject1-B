@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 固定ヘッダー -->
     <header>
         <h1>ラインアレイスピーカーの技術紹介</h1>
         <nav>
@@ -19,6 +20,10 @@
             </ul>
         </nav>
     </header>
+
+    <!-- ヘッダーの高さを確保するスペーサー -->
+    <div class="header-spacer"></div>
+
     <main>
         <section class="fade-in">
             <h2>点音源と線音源の視覚化</h2>
@@ -45,54 +50,13 @@
             </ul>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2024 ラインアレイスピーカー研究プロジェクト</p>
     </footer>
 
-    <!-- JavaScriptの埋め込み -->
+    <!-- JavaScript -->
     <script>
-        // 点音源と線音源の視覚化
-        const visualization = document.getElementById('visualization');
-        const pointSourceBtn = document.getElementById('point-source-btn');
-        const lineSourceBtn = document.getElementById('line-source-btn');
-
-        pointSourceBtn.addEventListener('click', () => {
-            visualizeSource('point');
-        });
-
-        lineSourceBtn.addEventListener('click', () => {
-            visualizeSource('line');
-        });
-
-        function visualizeSource(type) {
-            visualization.innerHTML = '';
-            const canvas = document.createElement('canvas');
-            canvas.width = 300;
-            canvas.height = 300;
-            const ctx = canvas.getContext('2d');
-            visualization.appendChild(canvas);
-
-            let radius = 0;
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                if (type === 'point') {
-                    // 点音源：球面状に広がる
-                    ctx.arc(150, 150, radius, 0, 2 * Math.PI);
-                } else {
-                    // 線音源：円筒状に広がる
-                    ctx.ellipse(150, 150, radius, 50, 0, 0, 2 * Math.PI);
-                }
-                ctx.strokeStyle = 'blue';
-                ctx.stroke();
-                radius += 2;
-                if (radius < 150) {
-                    requestAnimationFrame(animate);
-                }
-            }
-            animate();
-        }
-
         // スクロール時のフェードインエフェクト
         const fadeIns = document.querySelectorAll('.fade-in');
 
@@ -100,8 +64,7 @@
             fadeIns.forEach((element) => {
                 const rect = element.getBoundingClientRect();
                 if (rect.top < window.innerHeight) {
-                    element.style.opacity = 1;
-                    element.style.transform = 'translateY(0)';
+                    element.classList.add('visible');
                 }
             });
         });
