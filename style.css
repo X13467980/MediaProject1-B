@@ -1,72 +1,46 @@
-/* リセットスタイル */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* 全体の設定 */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-/* 固定ヘッダー */
 header {
-    background-color: #333;
+    background: #333;
     color: #fff;
-    padding: 1rem;
+    padding: 1rem 0;
     text-align: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* ページコンテンツがヘッダーと被らないように調整 */
-main {
-    padding: 100px 2rem 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+header h1 {
+    margin: 0;
+    font-size: 2rem;
 }
 
-/* ナビゲーションメニュー */
 nav ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    padding: 0;
 }
 
 nav ul li {
-    margin: 0;
+    display: inline;
+    margin: 0 10px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
+main {
+    padding: 2rem;
+    background: #f4f4f4;
 }
 
-/* フッター */
 footer {
-    background-color: #333;
-    color: #fff;
     text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-}
-
-/* スクロール時のフェードインエフェクト */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s, transform 0.6s;
+    padding: 1rem 0;
+    background: #333;
+    color: #fff;
+    position: relative;
 }

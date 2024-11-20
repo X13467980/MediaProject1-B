@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>技術紹介 - ラインアレイスピーカー</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
-        <h1>ラインアレイスピーカーの技術紹介</h1>
+        <h1>ラインアレイスピーカー</h1>
         <nav>
             <ul>
                 <li><a href="index.html">ホーム</a></li>
                 <li><a href="overview.html">概要</a></li>
+                <li><a href="technology.html">技術紹介</a></li>
                 <li><a href="history.html">歴史</a></li>
                 <li><a href="usage.html">活用例</a></li>
-                <li><a href="technology.html">技術紹介</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="fade-in">
-            <h2>点音源と線音源の視覚化</h2>
-            <button id="point-source-btn">点音源の広がりを見る</button>
-            <button id="line-source-btn">線音源の広がりを見る</button>
-            <div id="visualization"></div>
-        </section>
 
-        <section class="fade-in">
+    <main>
+        <section>
             <h2>ラインアレイスピーカーとは</h2>
             <p>ラインアレイスピーカーは、複数のスピーカーユニットを垂直方向に配列し、狙った方向に明瞭で均一な音を届けることができるスピーカーシステムです。</p>
         </section>
 
-        <section class="fade-in">
+        <section>
             <h2>通常のスピーカーとラインアレイスピーカーの違い</h2>
             <p>通常のスピーカーは「点音源」、ラインアレイスピーカーは「線音源」として、それぞれ異なる音の広がり方を持っています。</p>
         </section>
 
-        <section class="fade-in">
+        <section>
+            <h3>点音源の特性</h3>
+            <ul>
+                <li>音は球面状に広がる。</li>
+                <li>距離が倍になると、音のエネルギーは1/4に減衰（6dB減衰）。</li>
+                <li>反射音が多く、音の明瞭性に影響を与えることがある。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>線音源の特性</h3>
+            <ul>
+                <li>水平方向には広がるが、垂直方向には広がらない。</li>
+                <li>距離が倍になると、音のエネルギーは1/2に減衰（3dB減衰）。</li>
+                <li>反射音が少なく、明瞭な音声を届けることができる。</li>
+            </ul>
+        </section>
+
+        <section>
             <h2>参考文献</h2>
             <ul>
                 <li><a href="https://www.sony.jp/line-array-speaker/about/" target="_blank">ソニーのラインアレイスピーカー</a></li>
@@ -45,66 +59,10 @@
             </ul>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2024 ラインアレイスピーカー研究プロジェクト</p>
     </footer>
-
-    <!-- JavaScriptの埋め込み -->
-    <script>
-        // 点音源と線音源の視覚化
-        const visualization = document.getElementById('visualization');
-        const pointSourceBtn = document.getElementById('point-source-btn');
-        const lineSourceBtn = document.getElementById('line-source-btn');
-
-        pointSourceBtn.addEventListener('click', () => {
-            visualizeSource('point');
-        });
-
-        lineSourceBtn.addEventListener('click', () => {
-            visualizeSource('line');
-        });
-
-        function visualizeSource(type) {
-            visualization.innerHTML = '';
-            const canvas = document.createElement('canvas');
-            canvas.width = 300;
-            canvas.height = 300;
-            const ctx = canvas.getContext('2d');
-            visualization.appendChild(canvas);
-
-            let radius = 0;
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                if (type === 'point') {
-                    // 点音源：球面状に広がる
-                    ctx.arc(150, 150, radius, 0, 2 * Math.PI);
-                } else {
-                    // 線音源：円筒状に広がる
-                    ctx.ellipse(150, 150, radius, 50, 0, 0, 2 * Math.PI);
-                }
-                ctx.strokeStyle = 'blue';
-                ctx.stroke();
-                radius += 2;
-                if (radius < 150) {
-                    requestAnimationFrame(animate);
-                }
-            }
-            animate();
-        }
-
-        // スクロール時のフェードインエフェクト
-        const fadeIns = document.querySelectorAll('.fade-in');
-
-        window.addEventListener('scroll', () => {
-            fadeIns.forEach((element) => {
-                const rect = element.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    element.style.opacity = 1;
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        });
-    </script>
 </body>
+
 </html>
