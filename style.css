@@ -1,44 +1,29 @@
-/* 全体のスタイル */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-/* 固定ヘッダーの設定 */
 header {
-    background-color: #333;
+    background: #333;
     color: #fff;
-    padding: 1rem;
+    padding: 1rem 0;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* ヘッダーの高さを確保するためのスペーサー */
-.header-spacer {
-    height: 80px; /* ヘッダーの高さと同じ値に設定 */
+header h1 {
+    margin: 0;
+    font-size: 2rem;
 }
 
-/* ナビゲーションメニュー */
 nav ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
+    padding: 0;
 }
 
 nav ul li {
+    display: inline;
     margin: 0 10px;
 }
 
@@ -47,51 +32,15 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* メインコンテンツ */
 main {
     padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+    background: #f4f4f4;
 }
 
-/* フッター */
 footer {
-    background-color: #333;
-    color: #fff;
     text-align: center;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-/* ボタンとフェードインエフェクト */
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #333;
+    padding: 1rem 0;
+    background: #333;
     color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s, transform 0.6s;
-}
-
-/* スクロール時にフェードインするエフェクト */
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+    position: relative;
 }
