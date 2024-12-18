@@ -1,81 +1,220 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>技術紹介 - ラインアレイスピーカー</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ラインアレイスピーカー</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .parallax {
+            background-image: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            min-height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 140px;     /*ヘッダーの高さ*/
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0px;
+            height: calc(100vh - 60px); /* ヘッダーを除いた高さを指定 */
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 120px 0 0 0; /* 目次の開始位置を下げる */
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding-top: 80px; /* ヘッダーの高さ + 余白 */
+        }
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .feature {
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        #floating-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://img.icons8.com/ios/50/000000/speaker.png');
+            background-size: cover;
+            animation: rotate 5s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <header>
-        <h1>ラインアレイスピーカー</h1>
-        <nav>
+    <div class="parallax">
+        <header>
+            <h1 style="text-align: center;">技術紹介</h1>
+            <nav>
+                <ul>
+                    <li><a href="indexneo.html">ホーム</a></li>
+                    <li><a href="technologyneo.html">技術紹介</a></li>
+                    <li><a href="historyneo.html">歴史</a></li>
+                    <li><a href="usageneo.html">活用例</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="sidebar">
             <ul>
-                <li><a href="index.html">ホーム</a></li>
-                <li><a href="technology.html">技術紹介</a></li>
-                <li><a href="history.html">歴史</a></li>
-                <li><a href="usage_y.html">活用例</a></li>
+                <li><a href="#home">はじめに</a></li>
+                <li><a href="#features">特徴</a></li>
+                <li><a href="#sound-uniformity">音の均一性</a></li>
+                <li><a href="#high-quality">高音質</a></li>
+                <li><a href="#versatility">多様な用途</a></li>
+                <li><a href="#audience-experience">聴衆体験の向上</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+        <main class="main-content">
+            <section id="home" class="content fade-in">
+                <h2>はじめに</h2>
+                <p>皆さん、コンサートやイベントで、特定の場所では音が聞きづらかったり、逆に音が強すぎて不快に感じた経験はありませんか？特に、大規模な会場で均一に音を届けることは、音響技術における大きな課題です。その課題に対する解決策として注目されているのが『ラインアレイスピーカー』という音響出力の技術です。</p>
+                <p>このシステムは、音の特性やスピーカーの配置を巧みに活用することで、従来の方法では難しかった均一な音響体験を可能にします。このwebページでは、私たちがこの技術に興味を持ち調べた、この技術の仕組み、歴史、さらに実際の応用例について詳しくお話しします。</p>
+            </section>
+            <section id="features">
+                <div id="sound-uniformity" class="feature fade-in">
+                    <h3>音の均一性</h3>
+                    <p>ラインアレイスピーカーは、広い範囲に均一な音を届けることができます。</p>
+                </div>
+                <div id="high-quality" class="feature fade-in">
+                    <h3>高音質</h3>
+                    <p>クリアで歪みの少ない高音質な音響を実現します。</p>
+                </div>
+                <div id="versatility" class="feature fade-in">
+                    <h3>多様な用途</h3>
+                    <p>コンサート、講演会、屋外イベントなど、様々な場面で活躍します。</p>
+                </div>
+                <div id="audience-experience" class="feature fade-in">
+                    <h3>聴衆体験の向上</h3>
+                    <p>全ての聴衆に最適な音響体験を提供します。</p>
+                </div>
+            </section>
+        </main>
+        <footer style="text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.7); color: white;">
+            <p>&copy; 2023 Media Project Ex1 GroupB -Line Array Speaker & Sound Output-</p>
+        </footer>
+        <div id="floating-icon"></div>
+    </div>
+    <script>
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
 
-    <main>
-        <section>
-            <h2>ラインアレイスピーカーとは</h2>
-            <p>ラインアレイスピーカーは、複数のスピーカーユニットを垂直方向に配列し、狙った方向に明瞭で均一な音を届けることができるスピーカーシステムです。この技術により、音の反射や拡散を最小限に抑え、大規模な会場や屋外イベントでもクリアな音響を提供します。</p>
-        </section>
+        function handleScroll() {
+            var elements = document.querySelectorAll('.fade-in');
+            elements.forEach(function(element) {
+                if (isElementInViewport(element)) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
 
-        <section>
-            <h2>点音源と線音源の違い</h2>
-            <p>音源には「点音源」と「線音源」の2つの基本的なタイプがあり、それぞれ音の広がり方や減衰特性に違いがあります。ラインアレイスピーカーは「線音源」の特性を持ち、音響の指向性や明瞭性を最適化します。</p>
-        </section>
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
 
-        <section>
-            <h3>点音源の特性</h3>
-            <ul>
-                <li>音は球面状に広がります。</li>
-                <li>距離が倍になると、音のエネルギーは1/4に減衰（6dB減衰）。</li>
-                <li>広範囲に音が拡散するため、反射音が多くなる傾向があります。</li>
-                <li>小規模な空間では適していますが、大規模な会場では音のばらつきが発生する可能性があります。</li>
-            </ul>
-        </section>
+        window.addEventListener('load', function() {
+            const header = document.querySelector('header');
+            const mainContent = document.querySelector('.main-content');
+            const headerHeight = header.offsetHeight;
+            mainContent.style.paddingTop = `${headerHeight}px`;
+        });
 
-        <section>
-            <h3>線音源の特性</h3>
-            <ul>
-                <li>音は水平方向に広がりますが、垂直方向への広がりは抑えられます。</li>
-                <li>距離が倍になると、音のエネルギーは1/2に減衰（3dB減衰）。</li>
-                <li>特定の範囲に音を集中させることで、クリアで均一な音響体験を提供します。</li>
-                <li>反射音が少なく、音の明瞭性を維持します。</li>
-            </ul>
-        </section>
+        window.addEventListener('resize', function() {
+            const header = document.querySelector('header');
+            const mainContent = document.querySelector('.main-content');
+            const headerHeight = header.offsetHeight;
+            mainContent.style.paddingTop            = `${headerHeight}px`;
+        });
 
-        <section>
-            <h2>ラインアレイスピーカーの技術的優位性</h2>
-            <p>ラインアレイスピーカーは、線音源の特性を活用し、以下のような効果を実現します。</p>
-            <ul>
-                <li><strong>均一な音圧:</strong> 会場全体にわたって均一な音響を提供。</li>
-                <li><strong>音の遠達性:</strong> 遠距離のリスナーにも明瞭な音を届けることが可能。</li>
-                <li><strong>指向性制御:</strong> 特定のエリアだけに音を届けることで、不要な反射を最小限に抑制。</li>
-                <li><strong>モジュール性:</strong> スピーカーユニットを組み合わせることで、規模に応じた柔軟な構成が可能。</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>参考文献</h2>
-            <ul>
-                <li><a href="https://www.sony.jp/line-array-speaker/about/" target="_blank">ソニーのラインアレイスピーカー</a></li>
-                <li><a href="https://www.toa.co.jp/otokukan/otolabo/theme2/at2.htm" target="_blank">TOA 音響研究ラボ</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/Line_array" target="_blank">Wikipedia - Line Array</a></li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; Media Project Ex1 GroupB - Line Array Speaker & Sound Output -</p>
-    </footer>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>
