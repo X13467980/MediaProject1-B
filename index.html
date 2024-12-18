@@ -4,117 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ラインアレイスピーカー</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            scroll-behavior: smooth;
-        }
-        .parallax {
-            background-image: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            min-height: 100vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        header {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            height: 140px;     /*ヘッダーの高さ*/
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0px;
-            height: calc(100vh - 60px); /* ヘッダーを除いた高さを指定 */
-            width: 200px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 120px 0 0 0; /* 目次の開始位置を下げる */
-        }
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-        .sidebar ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        .main-content {
-            margin-left: 250px;
-            padding-top: 80px; /* ヘッダーの高さ + 余白 */
-        }
-        .content {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-        }
-        .feature {
-            background-color: rgba(255, 255, 255, 0.9);
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-        .feature:hover {
-            transform: scale(1.05);
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        #floating-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-image: url('https://img.icons8.com/ios/50/000000/speaker.png');
-            background-size: cover;
-            animation: rotate 5s linear infinite;
-        }
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        @media (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-            .main-content {
-                margin-left: 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="stylei.css">
 </head>
 <body>
     <div class="parallax">
@@ -122,10 +12,10 @@
             <h1 style="text-align: center;">ラインアレイスピーカー</h1>
             <nav>
                 <ul>
-                    <li><a href="indexneo.html">ホーム</a></li>
+                    <li><a href="index.html">ホーム</a></li>
                     <li><a href="technology.html">技術紹介</a></li>
-                    <li><a href="historyneo.html">歴史</a></li>
-                    <li><a href="usageneo.html">活用例</a></li>
+                    <li><a href="history.html">歴史</a></li>
+                    <li><a href="usage.html">活用例</a></li>
                 </ul>
             </nav>
         </header>
@@ -170,6 +60,7 @@
         <div id="floating-icon"></div>
     </div>
     <script>
+        // JavaScript remains unchanged
         function isElementInViewport(el) {
             var rect = el.getBoundingClientRect();
             return (
@@ -204,7 +95,7 @@
             const header = document.querySelector('header');
             const mainContent = document.querySelector('.main-content');
             const headerHeight = header.offsetHeight;
-            mainContent.style.paddingTop            = `${headerHeight}px`;
+            mainContent.style.paddingTop = `${headerHeight}px`;
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
