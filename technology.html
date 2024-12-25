@@ -3,19 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>技術紹介</title>
-    <link rel="stylesheet" href="stylet.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <title>ラインアレイスピーカー - 技術紹介</title>
+    <link rel="stylesheet" href="stylei.css">
 </head>
 <body>
-    <div id="loading-screen">
-        <div class="loader"></div>
-    </div>
     <div class="parallax">
-        <header id="main-header">
-            <h1>技術紹介</h1>
+        <header>
+            <h1 style="text-align: center;">ラインアレイスピーカー - 技術紹介</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">ホーム</a></li>
@@ -25,159 +19,58 @@
                 </ul>
             </nav>
         </header>
-        <div class="sidebar" id="sidebar">
-            <button id="sidebar-toggle" aria-label="Toggle Sidebar">☰</button>
+        <div class="sidebar">
             <ul>
-                <li><a href="#home">はじめに</a></li>
-                <li><a href="#features">特徴</a></li>
-                <li><a href="#sound-uniformity">音の均一性</a></li>
-                <li><a href="#high-quality">高音質</a></li>
-                <li><a href="#versatility">多様な用途</a></li>
-                <li><a href="#audience-experience">聴衆体験の向上</a></li>
+                <li><a href="#principle">原理</a></li>
+                <li><a href="#design">設計</a></li>
+                <li><a href="#features">主な特徴</a></li>
+                <li><a href="#challenges">課題と未来</a></li>
             </ul>
         </div>
         <main class="main-content">
-            <section id="home" class="content fade-in">
-                <h2>はじめに</h2>
-                <p>皆さん、コンサートやイベントで、特定の場所では音が聞きづらかったり、逆に音が強すぎて不快に感じた経験はありませんか？特に、大規模な会場で均一に音を届けることは、音響技術における大きな課題です。その課題に対する解決策として注目されているのが『ラインアレイスピーカー』という音響出力の技術です。</p>
-                <p>このシステムは、音の特性やスピーカーの配置を巧みに活用することで、従来の方法では難しかった均一な音響体験を可能にします。このwebページでは、私たちがこの技術に興味を持ち調べた、この技術の仕組み、歴史、さらに実際の応用例について詳しくお話しします。</p>
+            <section id="principle" class="content fade-in">
+                <h2>ラインアレイスピーカーの原理</h2>
+                <p>ラインアレイスピーカーは、音波の干渉を利用して特定の方向に音響エネルギーを集中させる技術です。複数のスピーカーユニットを垂直方向に整列させ、それぞれのユニットから放射される音波が干渉し合うことで、遠くのリスナーにもクリアな音を届けることができます。</p>
+                <p>この仕組みにより、音の均一性が大幅に向上し、大規模な会場でもリスナー全体に高品質な音響体験を提供します。</p>
             </section>
-        
+            <section id="design" class="content fade-in">
+                <h2>設計と構造</h2>
+                <p>ラインアレイスピーカーの設計は、以下の要素で構成されています。</p>
+                <ul>
+                    <li><strong>垂直配置:</strong> スピーカーユニットを垂直に整列させることで、垂直方向への音の広がりを制御。</li>
+                    <li><strong>指向性制御:</strong> 水平方向には音を広げ、垂直方向では音の拡散を抑える設計。</li>
+                    <li><strong>調整可能な角度:</strong> 会場の形状に合わせてスピーカーの角度を調整可能。</li>
+                </ul>
+                <p>これらの設計により、必要な方向に音響エネルギーを効果的に集中させることができます。</p>
+            </section>
             <section id="features" class="content fade-in">
-                <h2>ラインアレイスピーカーの技術</h2>
-                <p>ラインアレイスピーカーの特徴は、音源が「点音源」ではなく「線音源」として動作することにあります。このセクションでは、点音源と線音源の違いを説明し、ラインアレイスピーカーの技術的優位性を解説します。</p>
-                
-                <h3>点音源と線音源の違い</h3>
-                <div id="sound-uniformity" class="feature fade-in">
-                    <h4>点音源</h4>
-                    <ul>
-                        <li>音は球面状に広がる。</li>
-                        <li>距離が2倍になると音のエネルギーは1/4に減衰（6dB減衰）。</li>
-                        <li>反射音が多く、音の明瞭性に影響を与える可能性がある。</li>
-                        <li>小規模な会場に適しているが、大規模な会場では音のばらつきが生じる。</li>
-                    </ul>
+                <h2>主な特徴</h2>
+                <div id="sound-uniformity" class="feature">
+                    <h3>音の均一性</h3>
+                    <p>ラインアレイスピーカーは、観客席全体に均一な音圧と音質を提供します。</p>
                 </div>
-                <div id="high-quality" class="feature fade-in">
-                    <h4>線音源</h4>
-                    <ul>
-                        <li>音は水平方向に広がるが、垂直方向には広がらない。</li>
-                        <li>距離が2倍になると音のエネルギーは1/2に減衰（3dB減衰）。</li>
-                        <li>特定のエリアに音を集中させ、均一な音響を提供。</li>
-                        <li>反射音が少なく、大規模な会場でクリアな音を実現する。</li>
-                    </ul>
+                <div id="high-quality" class="feature">
+                    <h3>高音質</h3>
+                    <p>各ユニットが連携して歪みの少ないクリアな音響を実現します。</p>
+                </div>
+                <div id="scalability" class="feature">
+                    <h3>スケーラビリティ</h3>
+                    <p>イベントの規模に応じて、スピーカーの数を柔軟に調整できます。</p>
                 </div>
             </section>
-        
-            <section id="advantages" class="content fade-in">
-                <h2>ラインアレイスピーカーの特徴</h2>
-                <div id="versatility" class="feature fade-in">
-                    <h3>音響特性</h3>
-                    <p>ラインアレイスピーカーは、複数のスピーカーユニットを垂直に配置し、音波の干渉効果を利用して、音の指向性を制御します。これにより、聴衆全体に均一な音を届けることが可能になります。</p>
-                </div>
-                <div id="audience-experience" class="feature fade-in">
-                    <h3>音の減衰を抑える技術</h3>
-                    <p>距離が離れるにつれて音圧が急激に低下する点音源に比べ、ラインアレイスピーカーは線音源として動作するため、減衰を緩やかに抑えることができます。</p>
-                </div>
-                <div class="feature fade-in">
-                    <h3>実用例</h3>
-                    <ul>
-                        <li><strong>コンサート会場:</strong> 数千人規模の観客に均一な音響を提供。</li>
-                        <li><strong>屋外イベント:</strong> 広範囲にわたる音響カバレッジを実現。</li>
-                        <li><strong>講演会:</strong> 明瞭な音声で話者の声を伝達。</li>
-                    </ul>
-                </div>
+            <section id="challenges" class="content fade-in">
+                <h2>課題と未来の展望</h2>
+                <p>ラインアレイスピーカーには以下の課題があります。</p>
+                <ul>
+                    <li>導入コストが高い</li>
+                    <li>最適な設置には専門知識が必要</li>
+                </ul>
+                <p>しかし、AIやワイヤレス技術の進化により、設置の簡素化やコスト削減が進むことが期待されています。将来的には、さらに軽量でコンパクトなモデルや、環境に配慮した素材の採用も視野に入っています。</p>
             </section>
         </main>
-        <footer>
-            <p>&copy; 2023 Media Project Ex1 GroupB -Line Array Speaker & Sound Output-</p>
+        <footer style="text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.7); color: white;">
+            <p>&copy; 2023 Media Project Ex1 GroupB -Line Array Speaker Technology-</p>
         </footer>
-        <div id="floating-icon"></div>
-        <button id="back-to-top" aria-label="Back to Top">↑</button>
     </div>
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('main-header');
-    const sidebar = document.getElementById('sidebar');
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-    const backToTopButton = document.getElementById('back-to-top');
-    const floatingIcon = document.getElementById('floating-icon');
-    const loadingScreen = document.getElementById('loading-screen');
-
-    // Loading screen
-    window.addEventListener('load', () => {
-        loadingScreen.style.display = 'none';
-    });
-
-    // Scroll event listener
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-            backToTopButton.style.display = 'block';
-        } else {
-            header.classList.remove('scrolled');
-            backToTopButton.style.display = 'none';
-        }
-    });
-
-    // Sidebar toggle
-    sidebarToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Back to top button
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // Floating icon interaction
-    floatingIcon.addEventListener('click', () => {
-        alert('ラインアレイスピーカーの音を体験してみましょう！');
-    });
-
-    // GSAP animations
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.utils.toArray('.fade-in').forEach((element) => {
-        gsap.from(element, {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            scrollTrigger: {
-                trigger: element,
-                start: 'top 80%',
-                end: 'bottom 20%',
-                toggleActions: 'play none none reverse'
-            }
-        });
-    });
-
-    gsap.from('.feature', {
-        opacity: 0,
-        scale: 0.8,
-        duration: 0.5,
-        stagger: 0.2,
-        scrollTrigger: {
-            trigger: '.feature',
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
-        }
-    });
-});
-</script>
 </body>
 </html>
-

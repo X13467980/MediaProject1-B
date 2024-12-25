@@ -113,10 +113,8 @@ nav ul li a:hover {
 }
 
 .main-content {
-    margin-left: 250px;
-    padding-top: 100px;
+    z-index: 10; /* コンテンツを上に表示 */
     position: relative;
-    z-index: 1;
 }
 
 .content {
