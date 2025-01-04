@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ラインアレイスピーカー</title>
-    <link rel="stylesheet" href="stylei.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="parallax">
         <header>
-            <h1 style="text-align: center;">ラインアレイスピーカー</h1>
+            <h1 style="text-align: center;"> ラインアレイスピーカーの全貌<br>
+                <span>新しい音響出力</span></h1>
             <nav>
                 <ul>
                     <li><a href="index.html">ホーム</a></li>
@@ -21,8 +22,7 @@
         </header>
         <div class="sidebar">
             <ul>
-                <li><a href="#home">はじめに</a></li>
-                <li><a href="#features">特徴</a></li>
+                <li><a href="#top">はじめに</a></li>
                 <li><a href="#sound-uniformity">音の均一性</a></li>
                 <li><a href="#high-quality">高音質</a></li>
                 <li><a href="#versatility">多様な用途</a></li>
@@ -30,12 +30,12 @@
             </ul>
         </div>
         <main class="main-content">
-            <section id="home" class="content fade-in">
+            <section id="top" class="content fade-in">
                 <h2>はじめに</h2>
                 <p>皆さん、コンサートやイベントで、特定の場所では音が聞きづらかったり、逆に音が強すぎて不快に感じた経験はありませんか？特に、大規模な会場で均一に音を届けることは、音響技術における大きな課題です。その課題に対する解決策として注目されているのが『ラインアレイスピーカー』という音響出力の技術です。</p>
                 <p>このシステムは、音の特性やスピーカーの配置を巧みに活用することで、従来の方法では難しかった均一な音響体験を可能にします。このwebページでは、私たちがこの技術に興味を持ち調べた、この技術の仕組み、歴史、さらに実際の応用例について詳しくお話しします。</p>
             </section>
-            <section id="features">
+            <section>
                 <div id="sound-uniformity" class="feature fade-in">
                     <h3>音の均一性</h3>
                     <p>ラインアレイスピーカーは、広い範囲に均一な音を届けることができます。</p>
@@ -59,53 +59,6 @@
         </footer>
         <div id="floating-icon"></div>
     </div>
-    <script>
-        // JavaScript remains unchanged
-        function isElementInViewport(el) {
-            var rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        function handleScroll() {
-            var elements = document.querySelectorAll('.fade-in');
-            elements.forEach(function(element) {
-                if (isElementInViewport(element)) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('load', handleScroll);
-
-        window.addEventListener('load', function() {
-            const header = document.querySelector('header');
-            const mainContent = document.querySelector('.main-content');
-            const headerHeight = header.offsetHeight;
-            mainContent.style.paddingTop = `${headerHeight}px`;
-        });
-
-        window.addEventListener('resize', function() {
-            const header = document.querySelector('header');
-            const mainContent = document.querySelector('.main-content');
-            const headerHeight = header.offsetHeight;
-            mainContent.style.paddingTop = `${headerHeight}px`;
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
