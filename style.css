@@ -23,18 +23,8 @@ body, html {
     background-size: cover;
     position: relative;
 }
-/* 歴史ページの背景を白に設定 */
-body.history-page {
-    background-color: #ffffff; /* 背景色を白に設定 */
-    color: #000000; /* テキストを黒に設定 */
-}
 
 
-/* パララックス背景を無効化（白い背景に統一） */
-.history-page .parallax {
-    background: none; /* 背景画像を削除 */
-    background-color: #ffffff; /* 背景色を白に設定 */
-}
 
 /* サイドバーのアクティブなリンクを目立たせる */
 .sidebar-link.active {
@@ -186,11 +176,6 @@ nav ul li a:hover {
     color: #121212; /* テキストを黒に設定 */
 }
 
-/* 歴史ページのサイドバーを左寄せ */
-.history-page .sidebar {
-    width: 200px; /* サイドバーの幅 */
-}
-
 
 /* メインコンテンツ */
 .main-content {
@@ -309,4 +294,61 @@ nav ul li a:hover {
         transform: rotate(360deg);
     }
 }
+/*歴史ページ用css変更*/
+/* テキストと画像を横並びに配置 */
+.content-wrapper {
+    display: flex;
+    align-items: flex-start; /* 上揃え */
+    gap: 20px; /* テキストと画像の間隔 */
+}
+
+/* テキスト部分のスタイル */
+.text-content {
+    flex: 1; /* テキストを残りの幅いっぱいに広げる */
+}
+
+/* 画像のスタイル */
+.content-image {
+    max-width: 500px; /* 画像の最大幅 */
+    height: auto; /* アスペクト比を維持 */
+    border-radius: 8px; /* 角を丸める */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 影を追加 */
+}
+
+.image-caption {
+    font-size: 0.8rem;
+    color: #cccccc;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.image-caption a {
+    color: #64ffda;
+    text-decoration: none;
+}
+
+.image-caption a:hover {
+    text-decoration: underline;
+}
+
+
+/* 背景にぼやけた画像を設定する要素 2025.01.02*/
+.blurred-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    z-index: 0; /* 一時的に前面に表示 */
+    opacity: 1; /* 常に表示させる */
+    background-color: rgba(0, 0, 0, 0.5); /* デバッグ用の色を追加 */
+}
+/* 1history.html では .parallax を無効化 */
+.history-page .parallax {
+    background: none !important; /* 背景を削除 */
+}
+
 

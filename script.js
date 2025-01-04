@@ -57,4 +57,33 @@ window.addEventListener('load', () => {
 });
 window.addEventListener('resize', adjustPadding);
 
+// 背景要素を取得2025.01.02
+const blurredBackground = document.querySelector('.blurred-background');
+let timeoutId = null; // タイマーを管理する変数
 
+// IntersectionObserverの設定
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio === 1) {
+                // 画像が100%表示された場合のみ
+                const imageUrl = entry.target.src;
+
+                // 背景画像を設定
+                blurredBackground.style.backgroundImage = `url(${imageUrl})`;
+                blurredBackground.style.opacity = '1'; // 背景を表示
+
+                // 前のタイマーをキャンセル（もしあれば）
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                    timeoutId = null;
+                }
+            }
+        });
+    },
+    { threshold: 1 } // 画像が100%表示されるまで待つ
+);
+
+// 監視する画像を設定
+const images = document.querySelectorAll('.content-image');
+images.forEach((image) => observer.observe(image));
